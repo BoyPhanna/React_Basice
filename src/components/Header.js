@@ -1,5 +1,12 @@
+import Logo from "../image/logo.png";
 
 export default function Header(){   
-    return <h2>Hello Boy</h2>
+    return (<>
+        <nav>
+            <img src={Logo} alt="logo" />
+            <a href="/">Home</a>
+            
+        </nav>
+    </>)
 }
 
