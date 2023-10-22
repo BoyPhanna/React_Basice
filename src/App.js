@@ -1,12 +1,27 @@
 import { useState } from "react";
 function App() {
-const [count,setCount]=useState(0);
+// បង្កើត 
+const [student,setStudent]=useState([
+{id:1,name:"Phanna"},
+{id:2,name:"JoJo"},
+{id:3,name:"Putina"},
+])
+const [show,setShow]=useState(true);
+function deleteStudent(id){
+  setStudent(student.filter(item=>item.id !==id))
+}
 return (
     <>
-    <h1>{count}</h1>
-    <button onClick={()=>setCount(count+1)}> Add</button>
-    <button onClick={()=>setCount(count-1)}> Sub</button>
-    <button onClick={()=>setCount(0)}> Reset</button>
+      <h1>ចំនួនសិស្ស : {student.length}</h1>
+      <button onClick={()=>setShow(!show)}>togle</button>
+      <ul>
+        {show && student.map((item)=>(
+          <li key={item.id}>
+            <p>{item.id} - {item.name}</p>
+            <button onClick={()=>deleteStudent(item.id)}>Delelte</button>
+          </li>
+        ))}
+      </ul>
     </>
   );
 }
